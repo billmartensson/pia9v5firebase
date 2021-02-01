@@ -7,10 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -27,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        todoadapter.mainact = this
+
         database = Firebase.database.reference
 
         val todorv = findViewById<RecyclerView>(R.id.todoRV)
@@ -40,6 +39,8 @@ class MainActivity : AppCompatActivity() {
             var newtodo = Todo(todoet.text.toString())
 
             database.child("androidtodo").push().setValue(newtodo)
+
+            loadtodo()
         }
 
         loadtodo()
@@ -128,15 +129,16 @@ class MainActivity : AppCompatActivity() {
 
                 for(todoitem in dataSnapshot.children)
                 {
-                    val thetodo = todoitem.getValue<Todo>()
-                    // ...
+                    val thetodo = todoitem.getValue<Todo>()!!
+                    thetodo.fbid = todoitem.key!!
+
+
                     Log.d(TAG, thetodo!!.todoname)
 
                     todoitems.add(thetodo)
                 }
 
-
-
+                todoadapter.todoListUpdate(todoitems)
 
             }
 
@@ -149,12 +151,33 @@ class MainActivity : AppCompatActivity() {
         database.child("androidtodo").addListenerForSingleValueEvent(todoListener)
     }
 
+    fun clickRow(clickedtodo : Todo)
+    {
+        Log.d(TAG, clickedtodo.todoname)
+
+        if(clickedtodo.tododone == true)
+        {
+            clickedtodo.tododone = false
+        } else {
+            clickedtodo.tododone = true
+        }
+
+
+        database.child("androidtodo").child(clickedtodo.fbid).setValue(clickedtodo)
+
+        loadtodo()
+
+        //database.child("androidtodo").child(clickedtodo.fbid).child("tododone").setValue(true)
+    }
 
 }
 
 
 data class Todo(var todoname : String = "",
-                var tododone : Boolean = false)
+                var tododone : Boolean = false) {
+    @Exclude
+    var fbid : String = ""
+}
 
 
 data class Fruit(var fruitname : String? = "", var fruitcolor : String? = "", var taste : String? = null) {
