@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "958018198051",
+    "firebase_url": "https://myswift-abc.firebaseio.com",
+    "project_id": "myswift-abc",
+    "storage_bucket": "myswift-abc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958018198051:android:e62021a84e2e821dcb6f96",
+        "android_client_info": {
+          "package_name": "se.magictechnology.firebaseintro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958018198051-98ctrordi17cv0cvguoa9p51jtkgihvo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO4cg1QGkYRUGo1_FREjkTmuMppthFg7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958018198051-98ctrordi17cv0cvguoa9p51jtkgihvo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "958018198051-9838qsa39smpmrbe17fhrnk6lq87eb1c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.magictechnology.SUI1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958018198051:android:b8e2f28164d2cb96cb6f96",
+        "android_client_info": {
+          "package_name": "se.magictechnology.pia9v5firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958018198051-98ctrordi17cv0cvguoa9p51jtkgihvo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO4cg1QGkYRUGo1_FREjkTmuMppthFg7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958018198051-98ctrordi17cv0cvguoa9p51jtkgihvo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "958018198051-9838qsa39smpmrbe17fhrnk6lq87eb1c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.magictechnology.SUI1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
